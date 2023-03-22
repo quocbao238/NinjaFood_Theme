@@ -11,8 +11,6 @@ class AppImageAssets {
   static const backgroundPattern = 'assets/images/background_pattern.png';
 }
 
-
-
 class AppIconsAssets {
   static const email = 'assets/icons/email_icon.svg';
   static const password = 'assets/icons/password_icon.svg';
@@ -23,9 +21,9 @@ class AppIconsAssets {
   static const facebook = 'assets/icons/facebook_icon.svg';
   static const google = 'assets/icons/google_icon.svg';
 
-  static const paypal = 'assets/images/paypal_icon.svg';
-  static const visa = 'assets/images/visa_icon.svg';
-  static const payOneer = 'assets/images/payOneer_icon.svg';
+  static const paypal = 'assets/icons/paypal_icon.svg';
+  static const visa = 'assets/icons/visa_icon.svg';
+  static const payOneer = 'assets/icons/payoneer_icon.svg';
 
   static const gallery = 'assets/icons/gallery_icon.svg';
   static const camera = 'assets/icons/camera_icon.svg';
