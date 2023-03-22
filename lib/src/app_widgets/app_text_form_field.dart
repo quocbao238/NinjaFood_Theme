@@ -33,6 +33,7 @@ class AppTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
+      style: Theme.of(context).textTheme.bodyMedium,
       decoration: InputDecoration(
         hintStyle: Theme.of(context).textTheme.labelMedium,
         hintText: hintText,

@@ -51,4 +51,6 @@ class AppIconsAssets {
   static const heart = 'assets/icons/heart_icon.svg';
 
   static const back = 'assets/icons/back_icon.svg';
+
+  static const close = 'assets/icons/close_icon.svg';
 }

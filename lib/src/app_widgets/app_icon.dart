@@ -7,7 +7,8 @@ class AppIcons extends StatelessWidget {
 
   const AppIcons.password({super.key}) : _urlIcon = AppIconsAssets.password;
 
-  const AppIcons.userProfile({super.key}) : _urlIcon = AppIconsAssets.userProfile;
+  const AppIcons.userProfile({super.key})
+      : _urlIcon = AppIconsAssets.userProfile;
 
   const AppIcons.checkbox({super.key}) : _urlIcon = AppIconsAssets.checkbox;
 
@@ -21,7 +22,8 @@ class AppIcons extends StatelessWidget {
 
   const AppIcons.camera({super.key}) : _urlIcon = AppIconsAssets.camera;
 
-  const AppIcons.yourLocation({super.key}) : _urlIcon = AppIconsAssets.yourLocation;
+  const AppIcons.yourLocation({super.key})
+      : _urlIcon = AppIconsAssets.yourLocation;
 
   const AppIcons.viaEmail({super.key}) : _urlIcon = AppIconsAssets.viaEmail;
 
@@ -35,13 +37,15 @@ class AppIcons extends StatelessWidget {
 
   const AppIcons.menuChat({super.key}) : _urlIcon = AppIconsAssets.menuChat;
 
-  const AppIcons.notification({super.key}) : _urlIcon = AppIconsAssets.notification;
+  const AppIcons.notification({super.key})
+      : _urlIcon = AppIconsAssets.notification;
 
   const AppIcons.search({super.key}) : _urlIcon = AppIconsAssets.search;
 
   const AppIcons.filter({super.key}) : _urlIcon = AppIconsAssets.filter;
 
-  const AppIcons.sendMessage({super.key}) : _urlIcon = AppIconsAssets.sendMessage;
+  const AppIcons.sendMessage({super.key})
+      : _urlIcon = AppIconsAssets.sendMessage;
 
   const AppIcons.volumeOn({super.key}) : _urlIcon = AppIconsAssets.volumeOn;
 
@@ -49,7 +53,8 @@ class AppIcons extends StatelessWidget {
 
   const AppIcons.edit({super.key}) : _urlIcon = AppIconsAssets.edit;
 
-  const AppIcons.locationMap({super.key}) : _urlIcon = AppIconsAssets.locationMap;
+  const AppIcons.locationMap({super.key})
+      : _urlIcon = AppIconsAssets.locationMap;
 
   const AppIcons.heart({super.key}) : _urlIcon = AppIconsAssets.heart;
 
@@ -63,6 +68,9 @@ class AppIcons extends StatelessWidget {
 
   const AppIcons.success({super.key}) : _urlIcon = AppIconsAssets.successIcon;
 
+  const AppIcons.close({super.key}) : _urlIcon = AppIconsAssets.close;
+
   @override
-  Widget build(BuildContext context) => SvgPicture.asset(_urlIcon, package: 'ninja_theme');
+  Widget build(BuildContext context) =>
+      SvgPicture.asset(_urlIcon, package: 'ninja_theme');
 }
