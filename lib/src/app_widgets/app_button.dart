@@ -6,21 +6,29 @@ class AppButton extends StatelessWidget {
   final void Function()? onPressed;
   final String title;
   final double _ratio;
+  final double? borderRadius;
 
-  const AppButton.min(
-      {super.key,
-      required this.title,
-      this.padding,
-      this.margin,
-      this.onPressed}
-      ): _ratio = 0.45;
-  const AppButton.max(
-      {super.key,
-      required this.title,
-      this.padding,
-      this.margin,
-      this.onPressed,
-      }) : _ratio = 1;
+  const AppButton.min({super.key, required this.title, this.padding, this.margin, this.onPressed})
+      : _ratio = 0.45,
+        borderRadius = 16;
+
+  const AppButton.max({
+    super.key,
+    required this.title,
+    this.padding,
+    this.margin,
+    this.onPressed,
+  })  : _ratio = 1,
+        borderRadius = 16;
+
+  const AppButton.customize({
+    super.key,
+    required this.title,
+    this.padding,
+    this.margin,
+    this.onPressed,
+    this.borderRadius,
+  }) : _ratio = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +40,10 @@ class AppButton extends StatelessWidget {
       margin: margin,
       child: DecoratedBox(
         decoration: BoxDecoration(
-            gradient: ThemeColors.gradientButtonColor,
-            borderRadius: BorderRadius.circular(16)),
+            gradient: ThemeColors.gradientButtonColor, borderRadius: BorderRadius.circular(borderRadius ?? 16)),
         child: ElevatedButton(
           onPressed: onPressed,
-          child: FittedBox(child: Text(title,style: ThemeText.bodyMedium.copyWith(
-            fontWeight: FontWeight.bold
-          ),)),
+          child: FittedBox(child: Text(title, style: ThemeText.bodyMedium.copyWith(fontWeight: FontWeight.bold))),
         ),
       ),
     );

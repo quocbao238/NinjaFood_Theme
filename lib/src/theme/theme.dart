@@ -39,7 +39,7 @@ class ThemePrimary {
   static darkTheme() {
     return ThemeData(
         textTheme: GoogleFonts.beVietnamProTextTheme(ThemeText.appTextTheme(
-            ThemeColors.textDarkColor, ThemeColors.lableDarkColor)),
+            ThemeColors.textDarkColor, ThemeColors.labelDarkColor)),
         brightness: Brightness.dark,
         colorScheme: const ColorScheme.dark().copyWith(
             primary: ThemeColors.primaryColor,

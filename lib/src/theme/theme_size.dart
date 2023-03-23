@@ -11,13 +11,13 @@ class ThemeSizes {
 }
 
 class ThemeFontSize {
-  static const displayLarge = 64.0;
-  static const displayMedium = 52.0;
-  static const displaySmall = 44.0;
-  static const headlineLarge = 40.0;
-  static const headlineMedium = 36.0;
-  static const headlineSmall = 32.0;
-  static const bodyLarge = 24.0;
-  static const bodyMedium = 20.0;
+  static const displayLarge = 54.0;
+  static const displayMedium = 42.0;
+  static const displaySmall = 36.0;
+  static const headlineLarge = 30.0;
+  static const headlineMedium = 26.0;
+  static const headlineSmall = 22.0;
+  static const bodyLarge = 20.0;
+  static const bodyMedium = 18.0;
   static const bodySmall = 16.0;
 }
