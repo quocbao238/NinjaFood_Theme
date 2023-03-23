@@ -1,2 +1,14 @@
 
 .DS_Store
+
+.idea/libraries/Dart_SDK.xml
+
+.idea/libraries/Flutter_Plugins.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/NinjaFood_Theme.iml
+
+.idea/vcs.xml

@@ -17,9 +17,7 @@ class _MyAppState extends State<MyApp> {
   ThemeData themeData = ThemePrimary.darkTheme();
 
   void toggleTheme() {
-    themeData = themeData.brightness == Brightness.dark
-        ? ThemePrimary.lightTheme()
-        : ThemePrimary.darkTheme();
+    themeData = themeData.brightness == Brightness.dark ? ThemePrimary.lightTheme() : ThemePrimary.darkTheme();
 
     setState(() {});
   }
@@ -75,21 +73,19 @@ class _MyAppState extends State<MyApp> {
                   AppButtonBack(
                     onPressed: () {},
                   ),
-                  const AppPadding.medium(
-                      child: AppTextFormField.email(hintText: 'UserName')),
-                  const AppPadding.medium(
-                      child: AppTextFormField.password(hintText: 'Password')),
-                  AppPadding.medium(
-                      child: AppButton.max(title: 'Login', onPressed: () {})),
-                  AppButton.min(
-                      title: 'Change Theme', onPressed: () => toggleTheme()),
+                  // const AppPadding.medium(
+                  //     child: AppTextFormField.email(hintText: 'UserName')),
+                  // const AppPadding.medium(
+                  //     child: AppTextFormField.password(hintText: 'Password')),
+                  AppPadding.medium(child: AppButton.max(title: 'Login', onPressed: () {})),
+                  AppButton.min(title: 'Change Theme', onPressed: () => toggleTheme()),
                   const AppIcons.password(),
                   const AppIcons.userProfile(),
                   const AppIcons.facebook(),
                   const AppIcons.payOneer(),
                   const AppIcons.paypal(),
                   const AppPadding.medium(child: AppLoading(isLoading: true)),
-                  AppIcons.viaSMS()
+                  // AppIcons.viaSMS()
                 ],
               ),
             ))
@@ -101,35 +97,30 @@ class _MyAppState extends State<MyApp> {
           body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppText.displayLarge(text: text),
-                AppText.displayMedium(text: text),
-                AppText.displaySmall(text: text),
-                AppText.headlineLarge(text: text),
-                AppText.headlineMedium(text: text),
-                AppText.headlineSmall(text: text),
-                AppText.bodyLarge(text: text),
-                AppText.bodyMedium(text: text),
-                AppText.bodySmall(text: text),
-                const AppErrorWidget(),
-                const AppPadding.medium(
-                    child: AppTextFormField.email(hintText: 'UserName')),
-                const AppPadding.medium(
-                    child: AppTextFormField.password(hintText: 'Password')),
-                const AppPadding.medium(
-                    child: AppTextFormField(hintText: 'PhoneNumber')),
                 AppPadding.medium(
-                    child: AppButton.max(title: 'Login', onPressed: () {})),
-                AppButton.min(
-                    title: 'Change Theme', onPressed: () => toggleTheme()),
-                const AppIcons.password(),
-                const AppIcons.password(),
-                const AppIcons.userProfile(),
-                const AppIcons.facebook(),
-                const AppIcons.payOneer(),
-                const AppIcons.paypal(),
-                const AppPadding.medium(child: AppLoading(isLoading: true)),
+                  child: AppTextFormField.email(
+                    controller: TextEditingController(),
+                    hintText: 'UserName',
+                    errorText: 'Error',
+                  ),
+                ),
+
+                AppPadding.medium(
+                    child: AppTextFormField.password(
+                        controller: TextEditingController(), errorText: 'Error', hintText: 'Password')),
+                // const AppPadding.medium(
+                //     child: AppTextFormField(hintText: 'PhoneNumber')),
+                AppPadding.medium(child: AppButton.max(title: 'Login', onPressed: () {})),
+                AppButton.min(title: 'Change Theme', onPressed: () => toggleTheme()),
+                // const AppIcons.password(),
+                // const AppIcons.password(),
+                // const AppIcons.userProfile(),
+                // const AppIcons.facebook(),
+                // const AppIcons.payOneer(),
+                // const AppIcons.paypal(),
+                // const AppPadding.medium(child: AppLoading(isLoading: true)),
               ],
             ),
           ),
