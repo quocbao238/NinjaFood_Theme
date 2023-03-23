@@ -28,7 +28,7 @@ class AppButton extends StatelessWidget {
 
     return Container(
       width: width,
-      height: kToolbarHeight,
+      height: 64,
       margin: margin,
       child: DecoratedBox(
         decoration: BoxDecoration(
