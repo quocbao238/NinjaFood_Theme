@@ -48,7 +48,9 @@ class AppScaffoldBackgroundImage extends AppScaffold {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          AppButtonBack(onPressed: onPressBackButton),
+                          onPressDrawer != null
+                              ? AppButtonDrawer(onPressed: onPressDrawer)
+                              : AppButtonBack(onPressed: onPressBackButton),
                           Expanded(child: body)
                         ]),
                   )),
