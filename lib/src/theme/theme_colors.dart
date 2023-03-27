@@ -27,13 +27,19 @@ class ThemeColors {
 
   static shadowLightColor() => const Color(0xFF5A6CEA).withOpacity(0.07);
 
-  static const shadowLayer1Color =  Color(0xFF7F67BE);
-  static const shadowLayer2Color =  Color(0xFFFFD8E4);
+  static const shadowLayer1Color = Color(0xFF7F67BE);
+  static Color shadowLayer1ColorDark() => _convertLightColorToDarkColor(shadowLayer1Color);
+  static const shadowLayer2Color = Color(0xFFFFD8E4);
+  static Color shadowLayer2ColorDark() => _convertLightColorToDarkColor(shadowLayer2Color);
 
   static const gradientButtonColor = LinearGradient(
       begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [Color(0xFF53E88B), Color(0xFF15BE77)]);
 
 
+
+  static Color _convertLightColorToDarkColor(Color color) {
+    final hsl = HSLColor.fromColor(color);
+    final darkHsl = hsl.withLightness((hsl.lightness - 0.4).clamp(0.0, 1.0));
+    return darkHsl.toColor();
+  }
 }
-
-
