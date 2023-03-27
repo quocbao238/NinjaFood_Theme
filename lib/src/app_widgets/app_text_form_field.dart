@@ -50,7 +50,7 @@ class AppTextFormField extends StatelessWidget {
       obscureText: obscureText ?? false,
       style: Theme.of(context).textTheme.bodyMedium,
       decoration: InputDecoration(
-        hintStyle: Theme.of(context).textTheme.labelMedium,
+        hintStyle: Theme.of(context).textTheme.labelLarge,
         hintText: hintText,
         errorText: errorText,
         prefixIcon:

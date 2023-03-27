@@ -35,6 +35,24 @@ class AppText extends StatelessWidget {
   const AppText.bodySmall({super.key, required this.text, this.textAlign, this.fontWeight, this.color})
       : _textStyle = ThemeText.bodySmall;
 
+  const AppText.titleLarge({super.key, required this.text, this.textAlign, this.fontWeight, this.color})
+      : _textStyle = ThemeText.titleLarge;
+
+  const AppText.titleMedium({super.key, required this.text, this.textAlign, this.fontWeight, this.color})
+      : _textStyle = ThemeText.titleMedium;
+
+  const AppText.titleSmall({super.key, required this.text, this.textAlign, this.fontWeight, this.color})
+      : _textStyle = ThemeText.titleSmall;
+
+  const AppText.labelLarge({super.key, required this.text, this.textAlign, this.fontWeight, this.color})
+      : _textStyle = ThemeText.labelLarge;
+
+  const AppText.labelMedium({super.key, required this.text, this.textAlign, this.fontWeight, this.color})
+      : _textStyle = ThemeText.labelMedium;
+
+  const AppText.labelSmall({super.key, required this.text, this.textAlign, this.fontWeight, this.color})
+      : _textStyle = ThemeText.labelSmall;
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;

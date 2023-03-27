@@ -27,8 +27,13 @@ class ThemeColors {
 
   static shadowLightColor() => const Color(0xFF5A6CEA).withOpacity(0.07);
 
+  static const shadowLayer1Color =  Color(0xFF7F67BE);
+  static const shadowLayer2Color =  Color(0xFFFFD8E4);
+
   static const gradientButtonColor = LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-      colors: [Color(0xFF53E88B), Color(0xFF15BE77)]);
+      begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [Color(0xFF53E88B), Color(0xFF15BE77)]);
+
+
 }
+
+

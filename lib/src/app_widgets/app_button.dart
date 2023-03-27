@@ -43,7 +43,7 @@ class AppButton extends StatelessWidget {
             gradient: ThemeColors.gradientButtonColor, borderRadius: BorderRadius.circular(borderRadius ?? 16)),
         child: ElevatedButton(
           onPressed: onPressed,
-          child: FittedBox(child: Text(title, style: ThemeText.bodyMedium.copyWith(fontWeight: FontWeight.bold))),
+          child: FittedBox(child: Text(title, style: ThemeText.bodyLarge.copyWith(fontWeight: FontWeight.bold))),
         ),
       ),
     );
