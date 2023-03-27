@@ -7,6 +7,8 @@ class ThemeColors {
   static const backgroundDarkColor = Color(0xFF0D0D0D);
   static const backgroundColor2 = Color(0xFFF7F8FE);
 
+  static const menuLightColor = Color(0xFFE5E5E5);
+
   static const textLightColor = Color(0xFF09051C);
   static const textDarkColor = Color(0xFFFFFFFF);
   static const textRedColor = Color(0xFFE74C3C);
