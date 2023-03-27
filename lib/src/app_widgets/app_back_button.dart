@@ -56,6 +56,7 @@ class AppButtonDrawer extends StatelessWidget {
           child: ElevatedButton(
               onPressed: () => onPressed?.call(),
               style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                    padding: MaterialStateProperty.all(EdgeInsets.zero),
                     backgroundColor: MaterialStateProperty.all(
                         const Color(0xFFF9A84D).withOpacity(0.1)),
                     shape: MaterialStateProperty.all(
@@ -64,7 +65,12 @@ class AppButtonDrawer extends StatelessWidget {
                       ),
                     ),
                   ),
-              child: const Center(child: Icon(Icons.menu))),
+              child: const Center(
+                  child: Icon(
+                Icons.menu,
+                color: Color(0xFFDA6317),
+                size: 24,
+              ))),
         ),
       ),
     );
