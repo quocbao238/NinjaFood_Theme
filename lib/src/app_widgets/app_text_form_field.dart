@@ -1,11 +1,14 @@
 part of app_widget;
 
+enum AppTextFormFieldType { email, password, phone, text }
+
 class AppTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final bool? obscureText;
   final String hintText;
   final TextEditingController controller;
   final String? errorText;
+  final AppTextFormFieldType _type;
 
   const AppTextFormField(
       {super.key,
@@ -13,14 +16,16 @@ class AppTextFormField extends StatelessWidget {
       required this.hintText,
       this.obscureText = false,
       this.errorText,
-      required this.controller});
+      required this.controller})
+      : _type = AppTextFormFieldType.text;
 
   const AppTextFormField.password({
     super.key,
     required this.hintText,
     this.errorText,
     required this.controller,
-  })  : obscureText = true,
+  })  : _type = AppTextFormFieldType.password,
+        obscureText = true,
         prefixIcon = errorText == null
             ? const AppIcons.password()
             : const AppIcons.password(color: Colors.redAccent);
@@ -30,7 +35,8 @@ class AppTextFormField extends StatelessWidget {
     required this.hintText,
     this.errorText,
     required this.controller,
-  })  : obscureText = false,
+  })  : _type = AppTextFormFieldType.email,
+        obscureText = false,
         prefixIcon = errorText == null
             ? const AppIcons.email()
             : const AppIcons.email(color: Colors.redAccent);
@@ -40,7 +46,8 @@ class AppTextFormField extends StatelessWidget {
     required this.hintText,
     this.errorText,
     required this.controller,
-  })  : obscureText = false,
+  })  : _type = AppTextFormFieldType.phone,
+        obscureText = false,
         prefixIcon = null;
 
   @override
@@ -48,6 +55,13 @@ class AppTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText ?? false,
+      inputFormatters: _type == AppTextFormFieldType.phone
+          ? [
+              FilteringTextInputFormatter.digitsOnly,
+              LengthLimitingTextInputFormatter(11),
+              PhoneNumberFormatter(),
+            ]
+          : [],
       style: Theme.of(context).textTheme.bodyMedium,
       decoration: InputDecoration(
         hintStyle: Theme.of(context).textTheme.labelLarge,

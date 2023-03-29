@@ -106,6 +106,12 @@ class _MyAppState extends State<MyApp> {
                     errorText: 'Error',
                   ),
                 ),
+                AppPadding.medium(
+                  child: AppTextFormField.phone(
+                    controller: TextEditingController(),
+                    hintText: 'Phone',
+                  ),
+                ),
 
                 AppPadding.medium(
                     child: AppTextFormField.password(
