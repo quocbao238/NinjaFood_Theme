@@ -39,9 +39,7 @@ class AppScaffoldBackgroundImage extends AppScaffold {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           appBarWidget != null
-                              ? SizedBox(
-                              height: kToolbarHeight,
-                              child: appBarWidget!)
+                              ? appBarWidget!
                               : AppButtonBack(onPressed: onPressBackButton),
                           Expanded(child: body)
                         ]),
