@@ -28,11 +28,10 @@ class PhoneNumberFormatter extends TextInputFormatter {
     if (newText.length == 1) {
       newText.contains("0") ? newText = "+84" : newText = "+84$newText";
     }
-    if (newText.length == 3) newText = "$newText";
-    if (newText.length == 7) newText = "$newText";
-    if (newText.length == 11) newText = "$newText";
+    if (newText.length == 3) newText = newText;
+    if (newText.length == 7) newText = newText;
+    if (newText.length == 11) newText = newText;
 
-    print(newText);
 
     return TextEditingValue(
       text: newText.toString(),

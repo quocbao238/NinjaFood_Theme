@@ -58,6 +58,7 @@ class AppText extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Text(text,
         textAlign: textAlign ?? TextAlign.center,
+
         style: _textStyle.copyWith(fontWeight: fontWeight, color: color ?? textTheme.bodySmall!.color));
   }
 }

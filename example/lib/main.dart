@@ -17,109 +17,77 @@ class _MyAppState extends State<MyApp> {
   ThemeData themeData = ThemePrimary.darkTheme();
 
   void toggleTheme() {
-    themeData = themeData.brightness == Brightness.dark ? ThemePrimary.lightTheme() : ThemePrimary.darkTheme();
+    themeData = themeData.brightness == Brightness.dark
+        ? ThemePrimary.lightTheme()
+        : ThemePrimary.darkTheme();
 
     setState(() {});
   }
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    String text = "Hello World";
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
       home: AppViewLayout(
-        tabletView: Row(
-          children: [
-            Expanded(
-                child: AppScaffoldBackgroundImage.pattern(
-              isLoading: false,
-              body: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AppButtonBack(
-                    onPressed: () {},
-                  ),
-                  AppText.displayLarge(text: text),
-                  AppText.displayMedium(text: text),
-                  AppText.displaySmall(text: text),
-                  AppText.headlineLarge(text: text),
-                  AppText.headlineMedium(text: text),
-                  AppText.headlineSmall(text: text),
-                  AppText.bodyLarge(text: text),
-                  AppText.bodyMedium(text: text),
-                  AppText.bodySmall(text: text),
-                  const AppPadding.regular(child: AppErrorWidget()),
-                  const AppPadding.medium(child: AppLoading(isLoading: true)),
-                ],
-              ),
-            )),
-            SizedBox(
-              width: 1,
-              height: DeviceHelper.size.height,
-              child: const ColoredBox(
-                color: Colors.greenAccent,
-              ),
-            ),
-            Expanded(
-                child: AppScaffoldBackgroundImage.splash(
-              isLoading: false,
-              body: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AppButtonBack(
-                    onPressed: () {},
-                  ),
-                  // const AppPadding.medium(
-                  //     child: AppTextFormField.email(hintText: 'UserName')),
-                  // const AppPadding.medium(
-                  //     child: AppTextFormField.password(hintText: 'Password')),
-                  AppPadding.medium(child: AppButton.max(title: 'Login', onPressed: () {})),
-                  AppButton.min(title: 'Change Theme', onPressed: () => toggleTheme()),
-                  const AppIcons.password(),
-                  const AppIcons.userProfile(),
-                  const AppIcons.facebook(),
-                  const AppIcons.payOneer(),
-                  const AppIcons.paypal(),
-                  const AppPadding.medium(child: AppLoading(isLoading: true)),
-                  // AppIcons.viaSMS()
-                ],
-              ),
-            ))
-          ],
-        ),
-        mobileView: AppScaffoldBackgroundImage.splash(
+        tabletView: Container(),
+        mobileView: AppScaffoldBackgroundImage.pattern(
           isLoading: false,
-          onPressBackButton: () {},
+          appBarWidget: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AppButtonDrawer(onPressed: () {}),
+              const Expanded(
+                child: AppPadding.medium(
+                    child: AppText.headlineSmall(
+                  text: 'Find Your\nFavorite Food',
+                )),
+              ),
+              AppButtonNotification(onPressed: () {}),
+            ],
+          ),
           body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppPadding.medium(
-                  child: AppTextFormField.email(
-                    controller: TextEditingController(),
-                    hintText: 'UserName',
-                    errorText: 'Error',
-                  ),
-                ),
-                AppPadding.medium(
-                  child: AppTextFormField.phone(
-                    controller: TextEditingController(),
-                    hintText: 'Phone',
-                  ),
+                AppFilterButton(
+                  onPressed: () {},
                 ),
 
-                AppPadding.medium(
-                    child: AppTextFormField.password(
-                        controller: TextEditingController(), errorText: 'Error', hintText: 'Password')),
-                // const AppPadding.medium(
-                //     child: AppTextFormField(hintText: 'PhoneNumber')),
-                AppPadding.medium(child: AppButton.max(title: 'Login', onPressed: () {})),
-                AppButton.min(title: 'Change Theme', onPressed: () => toggleTheme()),
+                AppButtonNotification(onPressed: () {}),
+
+                AppTextFormField(
+                  hintText: 'Search',
+                  controller: TextEditingController(),
+                ),
+
+                // AppPadding.medium(
+                //   child: AppTextFormField.email(
+                //     controller: TextEditingController(),
+                //     hintText: 'UserName',
+                //     errorText: 'Error',
+                //   ),
+                // ),
+                // AppPadding.medium(
+                //   child: AppTextFormField.phone(
+                //     controller: TextEditingController(),
+                //     hintText: 'Phone',
+                //   ),
+                // ),
+                //
+                // AppPadding.medium(
+                //     child: AppTextFormField.password(
+                //         controller: TextEditingController(),
+                //         errorText: 'Error',
+                //         hintText: 'Password')),
+                // // const AppPadding.medium(
+                // //     child: AppTextFormField(hintText: 'PhoneNumber')),
+                // AppPadding.medium(
+                //     child: AppButton.max(title: 'Login', onPressed: () {})),
+                AppButton.min(
+                    title: 'Change Theme', onPressed: () => toggleTheme()),
                 // const AppIcons.password(),
                 // const AppIcons.password(),
                 // const AppIcons.userProfile(),

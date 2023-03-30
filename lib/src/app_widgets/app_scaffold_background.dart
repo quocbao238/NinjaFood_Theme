@@ -3,31 +3,21 @@ part of app_widget;
 class AppScaffoldBackgroundImage extends AppScaffold {
   final VoidCallback? onPressBackButton;
   final String _backgroundUlr;
-  final VoidCallback? onPressDrawer;
 
   const AppScaffoldBackgroundImage.splash({
     super.key,
     this.onPressBackButton,
     required super.body,
     super.isLoading = false,
-  })  : _backgroundUlr = AppImageAssets.backgroundSplash,
-        onPressDrawer = null;
+  }) : _backgroundUlr = AppImageAssets.backgroundSplash;
 
   const AppScaffoldBackgroundImage.pattern({
     super.key,
     this.onPressBackButton,
     required super.body,
+    super.appBarWidget,
     super.isLoading = false,
-  })  : _backgroundUlr = AppImageAssets.backgroundPattern,
-        onPressDrawer = null;
-
-  const AppScaffoldBackgroundImage.patternWithDrawer({
-    super.key,
-    required super.body,
-    required this.onPressDrawer,
-    super.isLoading = false,
-  })  : _backgroundUlr = AppImageAssets.backgroundPattern,
-        onPressBackButton = null;
+  }) : _backgroundUlr = AppImageAssets.backgroundPattern;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +38,8 @@ class AppScaffoldBackgroundImage extends AppScaffold {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          onPressDrawer != null
-                              ? AppButtonDrawer(onPressed: onPressDrawer)
+                          appBarWidget != null
+                              ? appBarWidget!
                               : AppButtonBack(onPressed: onPressBackButton),
                           Expanded(child: body)
                         ]),

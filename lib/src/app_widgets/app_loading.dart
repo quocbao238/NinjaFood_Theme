@@ -2,6 +2,7 @@ part of app_widget;
 
 class AppLoading extends StatelessWidget {
   final bool isLoading;
+
   const AppLoading({super.key, required this.isLoading});
 
   @override
@@ -11,8 +12,7 @@ class AppLoading extends StatelessWidget {
       child: SpinKitFadingCircle(
         itemBuilder: (BuildContext context, int index) {
           return const DecoratedBox(
-            decoration: BoxDecoration(color: ThemeColors.primaryColor),
-          );
+              decoration: BoxDecoration(color: ThemeColors.primaryColor));
         },
       ),
     );

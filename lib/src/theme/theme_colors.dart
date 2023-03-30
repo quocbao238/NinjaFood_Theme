@@ -12,9 +12,12 @@ class ThemeColors {
   static const textLightColor = Color(0xFF09051C);
   static const textDarkColor = Color(0xFFFFFFFF);
   static const textRedColor = Color(0xFFE74C3C);
+  static const orangeColor = Color(0xFFDA6317);
+  static  backgroundIconColor() => const Color(0xFFF9A84D).withOpacity(0.1);
 
   static const labelColor = Color(0xFF3B3B3B);
   static const labelDarkColor = Color(0xFF666666);
+  static const textPriceColor = Color(0xFFFEAD1D);
 
   static const hintColorLight = Color(0xFF3B3B3B);
   static const hintColorDark = Color(0xFFFFFFFF);
