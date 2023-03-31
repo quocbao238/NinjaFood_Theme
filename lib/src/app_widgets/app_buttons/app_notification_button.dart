@@ -25,12 +25,18 @@ class AppButtonNotification extends StatelessWidget {
           child: ElevatedButton(
               onPressed: () => onPressed?.call(),
               style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-                backgroundColor:
-                isDark ? null : MaterialStateProperty.all(Colors.white),
-                shadowColor: MaterialStateProperty.all(Colors.white70),
                 padding: MaterialStateProperty.all(EdgeInsets.zero),
+                backgroundColor: MaterialStateProperty.all(
+                    ThemeColors.backgroundIconColor()),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                  ),
+                ),
               ),
-              child: const AppIcons.notification()),
+              child: const AppIcons.notification(
+                color: ThemeColors.orangeColor
+              )),
         ),
       ),
     );
