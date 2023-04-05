@@ -43,7 +43,7 @@ class AppIconsAssets {
   static const notification = 'assets/icons/notification_icon.svg';
   static const search = 'assets/icons/search_icon.svg';
   static const filter = 'assets/icons/filter_icon.svg';
-  static const sendMessage = 'assets/icons/send_message_icon.svg.svg';
+  static const sendMessage = 'assets/icons/send_message_icon.svg';
   static const volumeOn = 'assets/icons/volume_on.svg';
   static const volumeOff = 'assets/icons/volumeOff.svg';
   static const edit = 'assets/icons/edit_icon.svg';
@@ -53,4 +53,6 @@ class AppIconsAssets {
   static const back = 'assets/icons/back_icon.svg';
 
   static const close = 'assets/icons/close_icon.svg';
+
+  static const voucher = 'assets/icons/voucher_icon.svg';
 }
