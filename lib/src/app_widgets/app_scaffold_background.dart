@@ -9,6 +9,7 @@ class AppScaffoldBackgroundImage extends AppScaffold {
     this.onPressBackButton,
     required super.body,
     super.isLoading = false,
+    super.floatActionButton,
   }) : _backgroundUlr = AppImageAssets.backgroundSplash;
 
   const AppScaffoldBackgroundImage.pattern({
@@ -17,11 +18,13 @@ class AppScaffoldBackgroundImage extends AppScaffold {
     required super.body,
     super.appBarWidget,
     super.isLoading = false,
+    super.floatActionButton,
   }) : _backgroundUlr = AppImageAssets.backgroundPattern;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: floatActionButton,
         body: AppSizeScale(
             ratioWidth: 1,
             ratioHeight: 1,
