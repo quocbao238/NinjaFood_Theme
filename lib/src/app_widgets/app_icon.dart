@@ -66,6 +66,8 @@ class AppIcons extends StatelessWidget {
 
   const AppIcons.close({super.key, this.color}) : _urlIcon = AppIconsAssets.close;
 
+  const AppIcons.voucher({super.key, this.color}) : _urlIcon = AppIconsAssets.voucher;
+
   @override
   Widget build(BuildContext context) => SvgPicture.asset(_urlIcon,
       package: 'ninja_theme', colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null);
