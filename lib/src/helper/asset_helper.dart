@@ -55,4 +55,7 @@ class AppIconsAssets {
   static const close = 'assets/icons/close_icon.svg';
 
   static const voucher = 'assets/icons/voucher_icon.svg';
+
+  static const star = 'assets/icons/star_icon.svg';
+  static const halfStar = 'assets/icons/half_star_icon.svg';
 }
