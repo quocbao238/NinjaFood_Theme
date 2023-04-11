@@ -74,5 +74,5 @@ class AppIcons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SvgPicture.asset(_urlIcon,
-      package: 'ninja_theme', colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null);
+      package: 'ninja_theme', color: color);
 }

@@ -8,10 +8,6 @@ class AppFilterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (onPressed == null) return const SizedBox.shrink();
-
-    final isDark = Theme
-        .of(context)
-        .brightness == Brightness.dark;
     return SizedBox(
         width: 50,
         height: 50,

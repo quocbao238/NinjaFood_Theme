@@ -10,8 +10,6 @@ class AppButtonNotification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (onPressed == null) return const SizedBox.shrink();
-
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     return SafeArea(
       child: AppPadding(
         padding: const AppEdgeInsets.only(
