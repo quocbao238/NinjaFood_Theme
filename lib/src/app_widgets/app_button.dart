@@ -34,7 +34,8 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width * _ratio;
 
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 1000),
       width: width,
       height: 64,
       margin: margin,
