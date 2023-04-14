@@ -8,7 +8,10 @@ class AppTextFormField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final String? errorText;
+  final TextStyle? textStyle;
   final AppTextFormFieldType _type;
+  final InputDecoration? decoration;
+  final bool? enabled;
 
   const AppTextFormField(
       {super.key,
@@ -16,6 +19,9 @@ class AppTextFormField extends StatelessWidget {
       required this.hintText,
       this.obscureText = false,
       this.errorText,
+        this.enabled,
+      this.decoration,
+        this.textStyle,
       required this.controller})
       : _type = AppTextFormFieldType.text;
 
@@ -23,28 +29,33 @@ class AppTextFormField extends StatelessWidget {
     super.key,
     required this.hintText,
     this.errorText,
+    this.textStyle,
+    this.enabled,
+    this.decoration,
     required this.controller,
   })  : _type = AppTextFormFieldType.password,
         obscureText = true,
-        prefixIcon = errorText == null
-            ? const AppIcons.password()
-            : const AppIcons.password(color: Colors.redAccent);
+        prefixIcon = errorText == null ? const AppIcons.password() : const AppIcons.password(color: Colors.redAccent);
 
   const AppTextFormField.email({
     super.key,
     required this.hintText,
     this.errorText,
+    this.textStyle,
+    this.decoration,
+    this.enabled,
     required this.controller,
   })  : _type = AppTextFormFieldType.email,
         obscureText = false,
-        prefixIcon = errorText == null
-            ? const AppIcons.email()
-            : const AppIcons.email(color: Colors.redAccent);
+        prefixIcon = errorText == null ? const AppIcons.email() : const AppIcons.email(color: Colors.redAccent);
 
   const AppTextFormField.phone({
     super.key,
     required this.hintText,
     this.errorText,
+    this.textStyle,
+    this.decoration,
+    this.enabled,
     required this.controller,
   })  : _type = AppTextFormFieldType.phone,
         obscureText = false,
@@ -53,7 +64,9 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
       controller: controller,
+      enabled: enabled,
       obscureText: obscureText ?? false,
       inputFormatters: _type == AppTextFormFieldType.phone
           ? [
@@ -62,14 +75,14 @@ class AppTextFormField extends StatelessWidget {
               PhoneNumberFormatter(),
             ]
           : [],
-      style: Theme.of(context).textTheme.bodyMedium,
-      decoration: InputDecoration(
-        hintStyle: Theme.of(context).textTheme.labelLarge,
-        hintText: hintText,
-        errorText: errorText,
-        prefixIcon:
-            prefixIcon != null ? AppPadding.medium(child: prefixIcon) : null,
-      ),
+      style: textStyle ?? Theme.of(context).textTheme.bodyMedium,
+      decoration: decoration ??
+          InputDecoration(
+            hintStyle: Theme.of(context).textTheme.labelLarge,
+            hintText: hintText,
+            errorText: errorText,
+            prefixIcon: prefixIcon != null ? AppPadding.medium(child: prefixIcon) : null,
+          ),
     );
   }
 }

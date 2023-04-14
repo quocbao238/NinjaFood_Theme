@@ -11,19 +11,20 @@ class AnimationButton extends StatefulWidget {
   final double? ratioWidthLoading;
   final double? ratioWidthDone;
   final VoidCallback? onPressed;
+  final VoidCallback? onDone;
   final Duration? duration;
 
-  const AnimationButton(
-      {super.key,
-      required this.textDone,
-      required this.textLoading,
-      required this.textButton,
-      required this.loading,
-      this.onPressed,
-      this.ratioWidthButton = 0.9,
-      this.ratioWidthLoading = 0.75,
-      this.ratioWidthDone = 0.6,
-      this.duration = const Duration(milliseconds: 1000)});
+  const AnimationButton({super.key,
+    required this.textDone,
+    required this.textLoading,
+    required this.textButton,
+    required this.loading,
+    this.onDone,
+    this.onPressed,
+    this.ratioWidthButton = 0.9,
+    this.ratioWidthLoading = 0.75,
+    this.ratioWidthDone = 0.6,
+    this.duration = const Duration(milliseconds: 1000)});
 
   @override
   State<AnimationButton> createState() => _AnimationButtonState();
@@ -64,7 +65,9 @@ class _AnimationButtonState extends State<AnimationButton> {
   @override
   Widget build(BuildContext context) {
     AnimationState animationState = _getAnimationState();
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery
+        .of(context)
+        .size;
     return AnimatedContainer(
       width: _getSizeByAnimationState(animationState, size.width),
       duration: widget.duration!,
@@ -83,6 +86,8 @@ class _AnimationButtonState extends State<AnimationButton> {
         if (animationState == AnimationState.done) {
           Future.delayed(const Duration(milliseconds: 4000), () {
             animationState = AnimationState.none;
+            widget.onDone?.call();
+            if (!mounted) return;
             setState(() {});
           });
           return AnimationDoneButton(textDone: widget.textDone);
