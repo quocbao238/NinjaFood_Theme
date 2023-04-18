@@ -1,5 +1,7 @@
 library app_widget;
 
+import 'package:auto_animated/auto_animated.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,4 +23,10 @@ part 'app_padding.dart';
 part 'app_text_form_field.dart';
 part 'app_scaffold_background.dart';
 part 'app_image.dart';
+part 'app_network_image.dart';
+part 'app_dialog.dart';
+part 'app_animation_grid.dart';
+part 'app_animation_list.dart';
+part 'app_animated_floating_buttons.dart';
+
 
