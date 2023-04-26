@@ -10,26 +10,26 @@
 <circle cx="106.5" cy="54.5" r="1.5" fill="white"/>
 <circle cx="65" cy="125" r="2" fill="white"/>
 <circle cx="87" cy="77" r="1" fill="white"/>
-<defs>
-<linearGradient id="paint0_linear_184_2019" x1="18" y1="17.7719" x2="172.69" y2="41.7389" gradientUnits="userSpaceOnUse">
-<stop stop-color="#53E88B"/>
-<stop offset="1" stop-color="#15BE77"/>
-</linearGradient>
-<linearGradient id="paint1_linear_184_2019" x1="159" y1="25.2018" x2="174.007" y2="27.5269" gradientUnits="userSpaceOnUse">
-<stop stop-color="#53E88B"/>
-<stop offset="1" stop-color="#15BE77"/>
-</linearGradient>
-<linearGradient id="paint2_linear_184_2019" x1="-2.97791e-08" y1="-1.22807" x2="24.1844" y2="2.7063" gradientUnits="userSpaceOnUse">
-<stop stop-color="#53E88B"/>
-<stop offset="1" stop-color="#15BE77"/>
-</linearGradient>
-<linearGradient id="paint3_linear_184_2019" x1="-1.41805e-08" y1="130.325" x2="11.5912" y2="131.957" gradientUnits="userSpaceOnUse">
-<stop stop-color="#53E88B"/>
-<stop offset="1" stop-color="#15BE77"/>
-</linearGradient>
-<linearGradient id="paint4_linear_184_2019" x1="151" y1="157.754" x2="156.697" y2="158.858" gradientUnits="userSpaceOnUse">
-<stop stop-color="#53E88B"/>
-<stop offset="1" stop-color="#15BE77"/>
-</linearGradient>
-</defs>
+    <defs>
+    <linearGradient id="paint0_linear_184_2019" x1="18" y1="17.7719" x2="172.69" y2="41.7389" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#53E88B"/>
+    <stop offset="1" stop-color="#15BE77"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear_184_2019" x1="159" y1="25.2018" x2="174.007" y2="27.5269" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#53E88B"/>
+    <stop offset="1" stop-color="#15BE77"/>
+    </linearGradient>
+    <linearGradient id="paint2_linear_184_2019" x1="-2.97791e-08" y1="-1.22807" x2="24.1844" y2="2.7063" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#53E88B"/>
+    <stop offset="1" stop-color="#15BE77"/>
+    </linearGradient>
+    <linearGradient id="paint3_linear_184_2019" x1="-1.41805e-08" y1="130.325" x2="11.5912" y2="131.957" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#53E88B"/>
+    <stop offset="1" stop-color="#15BE77"/>
+    </linearGradient>
+    <linearGradient id="paint4_linear_184_2019" x1="151" y1="157.754" x2="156.697" y2="158.858" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#53E88B"/>
+    <stop offset="1" stop-color="#15BE77"/>
+    </linearGradient>
+    </defs>
 </svg>
