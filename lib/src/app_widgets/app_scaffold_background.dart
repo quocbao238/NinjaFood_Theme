@@ -18,7 +18,6 @@ class AppScaffoldBackgroundImage extends AppScaffold {
     super.isLoading = false,
     super.floatActionButton,
   }) : _backgroundUlr = AppImageAssets.backgroundPattern;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +27,8 @@ class AppScaffoldBackgroundImage extends AppScaffold {
             ratioHeight: 1,
             child: DecoratedBox(
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image:
-                            AssetImage(_backgroundUlr, package: 'ninja_theme'),
-                        fit: BoxFit.fill)),
+                    image:
+                        DecorationImage(image: AssetImage(_backgroundUlr, package: 'ninja_theme'), fit: BoxFit.fill)),
                 child: Stack(children: [
                   Positioned.fill(
                       child: Column(
