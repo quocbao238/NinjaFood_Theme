@@ -4,63 +4,74 @@ enum AppDialogType { error, success, warning, info }
 
 class AppDialog extends StatelessWidget {
   final String title;
-  final String message;
+  final String? message;
+  final Widget? child;
   final String? leftBtnText;
   final String? rightBtnText;
   final VoidCallback? leftBtnOnPressed;
   final VoidCallback? rightBtnOnPressed;
   final Animation<double> animation;
 
-  const AppDialog({super.key,
-    required this.title,
-    required this.message,
-    this.rightBtnText = 'OK',
-    this.rightBtnOnPressed,
-    this.leftBtnOnPressed,
-    this.leftBtnText,
-    required this.animation});
+  const AppDialog(
+      {super.key,
+      required this.title,
+      this.message,
+      this.child,
+      this.rightBtnText = 'OK',
+      this.rightBtnOnPressed,
+      this.leftBtnOnPressed,
+      this.leftBtnText,
+      required this.animation})
+      : assert(message != null || child != null,
+            'message or child must not be null');
 
-  const AppDialog.error({super.key,
-    required this.title,
-    required this.message,
-    this.rightBtnText = 'OK',
-    this.rightBtnOnPressed,
-    required this.animation})
+  const AppDialog.error(
+      {super.key,
+      required this.title,
+      required this.message,
+      this.rightBtnText = 'OK',
+      this.rightBtnOnPressed,
+      required this.animation})
       : leftBtnText = null,
+        child = null,
         leftBtnOnPressed = null;
 
-  const AppDialog.success({super.key,
-    required this.title,
-    required this.message,
-    this.rightBtnText,
-    this.rightBtnOnPressed,
-    required this.animation})
+  const AppDialog.success(
+      {super.key,
+      required this.title,
+      required this.message,
+      this.rightBtnText,
+      this.rightBtnOnPressed,
+      required this.animation})
       : leftBtnText = null,
+        child = null,
         leftBtnOnPressed = null;
 
-  const AppDialog.warning({super.key,
-    required this.title,
-    required this.message,
-    this.leftBtnText,
-    this.rightBtnText,
-    this.leftBtnOnPressed,
-    this.rightBtnOnPressed,
-    required this.animation});
+  const AppDialog.warning(
+      {super.key,
+      required this.title,
+      required this.message,
+      this.leftBtnText,
+      this.rightBtnText,
+      this.leftBtnOnPressed,
+      this.rightBtnOnPressed,
+      required this.animation})
+      : child = null;
 
-  const AppDialog.info({super.key,
-    required this.title,
-    required this.message,
-    this.leftBtnText,
-    this.rightBtnText,
-    this.leftBtnOnPressed,
-    this.rightBtnOnPressed,
-    required this.animation});
+  const AppDialog.info(
+      {super.key,
+      required this.title,
+      required this.message,
+      this.leftBtnText,
+      this.rightBtnText,
+      this.leftBtnOnPressed,
+      this.rightBtnOnPressed,
+      required this.animation})
+      : child = null;
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme
-        .of(context)
-        .colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Center(
@@ -97,7 +108,7 @@ class AppDialog extends StatelessWidget {
                         padding: const AppEdgeInsets.symmetric(
                             horizontal: AppGapSize.small,
                             vertical: AppGapSize.medium),
-                        child: AppText.bodyMedium(text: message)),
+                        child: child ?? AppText.bodyMedium(text: message!)),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -132,7 +143,7 @@ class AppDialog extends StatelessWidget {
       style: TextButton.styleFrom(
           backgroundColor: backgroundColor,
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))),
       onPressed: onPressed,
       child: AppText.bodySmall(text: text),
     );
