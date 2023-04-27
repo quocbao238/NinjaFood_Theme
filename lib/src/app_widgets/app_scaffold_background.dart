@@ -3,12 +3,14 @@ part of app_widget;
 class AppScaffoldBackgroundImage extends AppScaffold {
   final VoidCallback? onPressBackButton;
   final String _backgroundUlr;
+  final bool wrapBodyWithSafeArea;
 
   const AppScaffoldBackgroundImage.splash({
     super.key,
     this.onPressBackButton,
     required super.body,
     super.isLoading = false,
+    this.wrapBodyWithSafeArea = true,
     super.floatActionButton,
   }) : _backgroundUlr = AppImageAssets.backgroundSplash;
 
@@ -17,6 +19,7 @@ class AppScaffoldBackgroundImage extends AppScaffold {
     this.onPressBackButton,
     required super.body,
     super.appBarWidget,
+    this.wrapBodyWithSafeArea = true,
     super.isLoading = false,
     super.floatActionButton,
   }) : _backgroundUlr = AppImageAssets.backgroundPattern;
@@ -24,7 +27,7 @@ class AppScaffoldBackgroundImage extends AppScaffold {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: floatActionButton,
+        floatingActionButton: floatActionButton,
         body: AppSizeScale(
             ratioWidth: 1,
             ratioHeight: 1,
@@ -36,17 +39,18 @@ class AppScaffoldBackgroundImage extends AppScaffold {
                         fit: BoxFit.fill)),
                 child: Stack(children: [
                   Positioned.fill(
-                      child: SafeArea(
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          appBarWidget != null
-                              ? appBarWidget!
-                              : AppButtonBack(onPressed: onPressBackButton),
-                          Expanded(child: body)
-                        ]),
-                  )),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                        appBarWidget != null
+                            ? appBarWidget!
+                            : AppButtonBack(onPressed: onPressBackButton),
+                        Expanded(
+                            child: wrapBodyWithSafeArea
+                                ? SafeArea(child: body)
+                                : body)
+                      ])),
                   Positioned.fill(
                       child: Center(child: AppLoading(isLoading: isLoading))),
                 ]))));

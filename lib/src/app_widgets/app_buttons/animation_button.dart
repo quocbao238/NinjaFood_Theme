@@ -14,17 +14,18 @@ class AnimationButton extends StatefulWidget {
   final VoidCallback? onDone;
   final Duration? duration;
 
-  const AnimationButton({super.key,
-    required this.textDone,
-    required this.textLoading,
-    required this.textButton,
-    required this.loading,
-    this.onDone,
-    this.onPressed,
-    this.ratioWidthButton = 0.9,
-    this.ratioWidthLoading = 0.75,
-    this.ratioWidthDone = 0.6,
-    this.duration = const Duration(milliseconds: 1000)});
+  const AnimationButton(
+      {super.key,
+      required this.textDone,
+      required this.textLoading,
+      required this.textButton,
+      required this.loading,
+      this.onDone,
+      this.onPressed,
+      this.ratioWidthButton = 0.9,
+      this.ratioWidthLoading = 0.75,
+      this.ratioWidthDone = 0.6,
+      this.duration = const Duration(milliseconds: 1000)});
 
   @override
   State<AnimationButton> createState() => _AnimationButtonState();
@@ -65,9 +66,7 @@ class _AnimationButtonState extends State<AnimationButton> {
   @override
   Widget build(BuildContext context) {
     AnimationState animationState = _getAnimationState();
-    final size = MediaQuery
-        .of(context)
-        .size;
+    final size = MediaQuery.of(context).size;
     return AnimatedContainer(
       width: _getSizeByAnimationState(animationState, size.width),
       duration: widget.duration!,
@@ -101,7 +100,8 @@ class _AnimationButtonState extends State<AnimationButton> {
 class AnimationDoneButton extends StatelessWidget {
   final String textDone;
 
-  const AnimationDoneButton({Key? key, required this.textDone}) : super(key: key);
+  const AnimationDoneButton({Key? key, required this.textDone})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,9 @@ class AnimationDoneButton extends StatelessWidget {
       height: 64,
       padding: EdgeInsets.symmetric(horizontal: AppGapSize.regular.size),
       child: DecoratedBox(
-        decoration: BoxDecoration(gradient: ThemeColors.gradientButtonColor, borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(
+            gradient: ThemeColors.gradientButtonColor,
+            borderRadius: BorderRadius.circular(16)),
         child: ElevatedButton(
           onPressed: () {},
           child: Row(
@@ -119,10 +121,14 @@ class AnimationDoneButton extends StatelessWidget {
             children: [
               const Icon(Icons.done, color: Colors.white),
               SizedBox(width: AppGapSize.small.size),
-              AppText.bodyLarge(
-                text: textDone,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+              Expanded(
+                child: AppText.bodyLarge(
+                  text: textDone,
+                  color: Colors.white,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
@@ -135,7 +141,8 @@ class AnimationDoneButton extends StatelessWidget {
 class AnimationLoadingButton extends StatelessWidget {
   final String textLoading;
 
-  const AnimationLoadingButton({Key? key, required this.textLoading}) : super(key: key);
+  const AnimationLoadingButton({Key? key, required this.textLoading})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +150,9 @@ class AnimationLoadingButton extends StatelessWidget {
       height: 64,
       padding: EdgeInsets.symmetric(horizontal: AppGapSize.regular.size),
       child: DecoratedBox(
-        decoration: BoxDecoration(gradient: ThemeColors.gradientButtonColor, borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(
+            gradient: ThemeColors.gradientButtonColor,
+            borderRadius: BorderRadius.circular(16)),
         child: ElevatedButton(
           onPressed: () {},
           child: Row(
@@ -153,10 +162,14 @@ class AnimationLoadingButton extends StatelessWidget {
             children: [
               const AppLoading(isLoading: true, color: Colors.white, size: 24),
               SizedBox(width: AppGapSize.small.size),
-              AppText.bodyLarge(
-                text: textLoading,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+              Expanded(
+                child: AppText.bodyLarge(
+                  text: textLoading,
+                  color: Colors.white,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
