@@ -1,25 +1,20 @@
 part of app_widget;
 
 class AppScaffoldBackgroundImage extends AppScaffold {
-  final VoidCallback? onPressBackButton;
   final String _backgroundUlr;
-  final bool wrapBodyWithSafeArea;
 
   const AppScaffoldBackgroundImage.splash({
     super.key,
-    this.onPressBackButton,
     required super.body,
+    super.appBarWidget,
     super.isLoading = false,
-    this.wrapBodyWithSafeArea = true,
     super.floatActionButton,
   }) : _backgroundUlr = AppImageAssets.backgroundSplash;
 
   const AppScaffoldBackgroundImage.pattern({
     super.key,
-    this.onPressBackButton,
     required super.body,
     super.appBarWidget,
-    this.wrapBodyWithSafeArea = true,
     super.isLoading = false,
     super.floatActionButton,
   }) : _backgroundUlr = AppImageAssets.backgroundPattern;
@@ -43,13 +38,9 @@ class AppScaffoldBackgroundImage extends AppScaffold {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                        appBarWidget != null
-                            ? appBarWidget!
-                            : AppButtonBack(onPressed: onPressBackButton),
-                        Expanded(
-                            child: wrapBodyWithSafeArea
-                                ? SafeArea(child: body)
-                                : body)
+                        if (appBarWidget != null)
+                          SafeArea(child: appBarWidget!),
+                        Expanded(child: body)
                       ])),
                   Positioned.fill(
                       child: Center(child: AppLoading(isLoading: isLoading))),

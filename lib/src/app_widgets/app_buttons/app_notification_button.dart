@@ -1,6 +1,4 @@
-
 part of app_buttons;
-
 
 class AppButtonNotification extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -15,26 +13,24 @@ class AppButtonNotification extends StatelessWidget {
         padding: const AppEdgeInsets.only(
             top: AppGapSize.paddingMedium,
             left: AppGapSize.paddingMedium,
-            right: AppGapSize.paddingMedium,
-            bottom: AppGapSize.regular),
+            right: AppGapSize.paddingMedium),
         child: SizedBox(
           width: 45,
           height: 45,
           child: ElevatedButton(
               onPressed: () => onPressed?.call(),
               style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-                padding: MaterialStateProperty.all(EdgeInsets.zero),
-                backgroundColor: MaterialStateProperty.all(
-                    ThemeColors.backgroundIconColor()),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.0),
+                    padding: MaterialStateProperty.all(EdgeInsets.zero),
+                    backgroundColor: MaterialStateProperty.all(
+                        ThemeColors.backgroundIconColor()),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              child: const AppIcons.notification(
-                color: ThemeColors.orangeColor
-              )),
+              child:
+                  const AppIcons.notification(color: ThemeColors.orangeColor)),
         ),
       ),
     );

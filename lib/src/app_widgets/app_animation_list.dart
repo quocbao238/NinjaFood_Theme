@@ -9,20 +9,20 @@ class AppAnimationList extends StatelessWidget {
   final bool? shrinkWrap;
   final Axis? scrollDirection;
 
-  const AppAnimationList(
-      {Key? key,
-      this.controller,
-      required this.itemBuilder,
-      required this.itemCount,
-      this.scrollDirection = Axis.vertical,
-      this.physics,
-      this.shrinkWrap})
+  const AppAnimationList({Key? key,
+    this.controller,
+    required this.itemBuilder,
+    required this.itemCount,
+    this.scrollDirection = Axis.vertical,
+    this.physics,
+    this.shrinkWrap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return LiveList.options(
       scrollDirection: scrollDirection!,
+      padding: const EdgeInsets.all(0),
       options: const LiveOptions(
           delay: Duration(milliseconds: 200),
           showItemInterval: Duration(milliseconds: 100),
