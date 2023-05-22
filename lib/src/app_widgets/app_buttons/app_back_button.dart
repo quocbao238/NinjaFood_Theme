@@ -23,13 +23,13 @@ class AppButtonBack extends StatelessWidget {
             style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
                   backgroundColor: MaterialStateProperty.all(
                       ThemeColors.backgroundIconColor()),
+                  padding: MaterialStateProperty.all(const EdgeInsets.all(8)),
                   shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
+                        borderRadius: BorderRadius.circular(16.0)),
                   ),
                 ),
-            child: const Center(child: AppIcons.back()),
+            child: const AppIcons.back(),
           ),
         ),
       ),

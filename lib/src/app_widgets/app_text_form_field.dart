@@ -12,6 +12,8 @@ class AppTextFormField extends StatelessWidget {
   final AppTextFormFieldType _type;
   final InputDecoration? decoration;
   final bool? enabled;
+  final int? maxLines;
+  final TextInputType? keyboardType;
 
   const AppTextFormField(
       {super.key,
@@ -19,10 +21,12 @@ class AppTextFormField extends StatelessWidget {
       required this.hintText,
       this.obscureText = false,
       this.errorText,
-        this.enabled,
+      this.enabled,
       this.decoration,
-        this.textStyle,
-      required this.controller})
+      this.textStyle,
+      this.maxLines = 1,
+      required this.controller,
+      this.keyboardType})
       : _type = AppTextFormFieldType.text;
 
   const AppTextFormField.password({
@@ -30,30 +34,40 @@ class AppTextFormField extends StatelessWidget {
     required this.hintText,
     this.errorText,
     this.textStyle,
+    this.maxLines = 1,
+    this.keyboardType,
     this.enabled,
     this.decoration,
     required this.controller,
   })  : _type = AppTextFormFieldType.password,
         obscureText = true,
-        prefixIcon = errorText == null ? const AppIcons.password() : const AppIcons.password(color: Colors.redAccent);
+        prefixIcon = errorText == null
+            ? const AppIcons.password()
+            : const AppIcons.password(color: Colors.redAccent);
 
   const AppTextFormField.email({
     super.key,
     required this.hintText,
     this.errorText,
     this.textStyle,
+    this.maxLines = 1,
     this.decoration,
     this.enabled,
+    this.keyboardType,
     required this.controller,
   })  : _type = AppTextFormFieldType.email,
         obscureText = false,
-        prefixIcon = errorText == null ? const AppIcons.email() : const AppIcons.email(color: Colors.redAccent);
+        prefixIcon = errorText == null
+            ? const AppIcons.email()
+            : const AppIcons.email(color: Colors.redAccent);
 
   const AppTextFormField.phone({
     super.key,
     required this.hintText,
     this.errorText,
+    this.keyboardType,
     this.textStyle,
+    this.maxLines = 1,
     this.decoration,
     this.enabled,
     required this.controller,
@@ -64,10 +78,16 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-
       controller: controller,
       enabled: enabled,
+      keyboardType: keyboardType ??
+          (_type == AppTextFormFieldType.email
+              ? TextInputType.emailAddress
+              : _type == AppTextFormFieldType.phone
+                  ? TextInputType.phone
+                  : TextInputType.text),
       obscureText: obscureText ?? false,
+      maxLines: maxLines,
       inputFormatters: _type == AppTextFormFieldType.phone
           ? [
               FilteringTextInputFormatter.digitsOnly,
@@ -81,7 +101,9 @@ class AppTextFormField extends StatelessWidget {
             hintStyle: Theme.of(context).textTheme.labelLarge,
             hintText: hintText,
             errorText: errorText,
-            prefixIcon: prefixIcon != null ? AppPadding.medium(child: prefixIcon) : null,
+            prefixIcon: prefixIcon != null
+                ? AppPadding.medium(child: prefixIcon)
+                : null,
           ),
     );
   }
