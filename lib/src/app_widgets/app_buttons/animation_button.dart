@@ -25,7 +25,7 @@ class AnimationButton extends StatefulWidget {
       this.ratioWidthButton = 0.9,
       this.ratioWidthLoading = 0.75,
       this.ratioWidthDone = 0.6,
-      this.duration = const Duration(milliseconds: 1000)});
+      this.duration = const Duration(milliseconds: 400)});
 
   @override
   State<AnimationButton> createState() => _AnimationButtonState();

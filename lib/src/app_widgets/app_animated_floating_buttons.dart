@@ -1,8 +1,5 @@
 part of 'app_widgets.dart';
 
-
-
-
 class AppAnimatedFloatingButtons extends StatefulWidget {
   final List<IconData> iconItems;
   final IconData primaryButtonIcon;
@@ -16,10 +13,12 @@ class AppAnimatedFloatingButtons extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<AppAnimatedFloatingButtons> createState() => _AppAnimatedFloatingButtonsState();
+  State<AppAnimatedFloatingButtons> createState() =>
+      _AppAnimatedFloatingButtonsState();
 }
 
-class _AppAnimatedFloatingButtonsState extends State<AppAnimatedFloatingButtons> with SingleTickerProviderStateMixin {
+class _AppAnimatedFloatingButtonsState extends State<AppAnimatedFloatingButtons>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
   bool _isExpanded = false;
@@ -27,7 +26,8 @@ class _AppAnimatedFloatingButtonsState extends State<AppAnimatedFloatingButtons>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
     _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
   }
 
@@ -57,7 +57,7 @@ class _AppAnimatedFloatingButtonsState extends State<AppAnimatedFloatingButtons>
         mainAxisSize: MainAxisSize.min,
         children: [
           AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 100),
             height: _isExpanded ? widget.iconItems.length * 76 : 0.0,
             child: ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
@@ -71,8 +71,10 @@ class _AppAnimatedFloatingButtonsState extends State<AppAnimatedFloatingButtons>
                       child: FloatingActionButton(
                           heroTag: null,
                           onPressed: () => _onPressedItem(index),
-                          backgroundColor: Theme.of(context).colorScheme.primary,
-                          child: Icon(widget.iconItems[index], color: Colors.white))),
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          child: Icon(widget.iconItems[index],
+                              color: Colors.white))),
                 );
               },
             ),
@@ -90,7 +92,9 @@ class _AppAnimatedFloatingButtonsState extends State<AppAnimatedFloatingButtons>
                         padding: EdgeInsets.zero,
                         color: Theme.of(context).colorScheme.primary,
                         onPressed: _toggle,
-                        icon: Icon(_isExpanded ? Icons.close : widget.primaryButtonIcon)));
+                        icon: Icon(_isExpanded
+                            ? Icons.close
+                            : widget.primaryButtonIcon)));
               },
             ),
           ),

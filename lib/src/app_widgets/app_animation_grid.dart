@@ -29,9 +29,9 @@ class AppAnimationGridView extends StatelessWidget {
       scrollDirection: scrollDirection!,
       padding: padding,
       options: const LiveOptions(
-          delay: Duration(milliseconds: 200),
+          delay: Duration(milliseconds: 100),
           showItemInterval: Duration(milliseconds: 100),
-          showItemDuration: Duration(milliseconds: 200),
+          showItemDuration: Duration(milliseconds: 100),
           visibleFraction: 0.05,
           reAnimateOnVisibility: false),
       shrinkWrap: shrinkWrap ?? false,
